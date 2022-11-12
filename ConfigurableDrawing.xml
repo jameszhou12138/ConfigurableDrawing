@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Component>
+<!--
+【1】配置文件用xml格式，注释采用标准的xml注释格式。
+【2】有8类设定：
+（1）<bg>：用于设定画布的背景颜色及横向和纵向坐标范围；
+（2）<points>：用于画一个或多个点，可以对点的颜色和填充等进行配置；
+（3）<lines>：用于画折线，可以对折线的颜色和粗细进行配置：
+（4）<line>：根据提供的单个点和斜率，画射线；
+（5）<curve>：用于画曲线，画出采用公式描述的曲线；
+（6）<shape>：用于画矩形和椭圆，能够对填充颜色进行配置；
+（7）<xScale>：用于画x轴刻度；
+（8）<yScale>：用于画y轴刻度。
+【3】与颜色相关的标签中，均可以采用两种方式之一设定：
+（1）用名称颜色，名称颜色共10种：
+black, blue, cyan, gray, green, 
+orange, pink, red, white, yellow
+（2）用RGB颜色，例如：
+255.0.155
+
+【4】其它设定包括：
+（1）所有与线的粗细有关的设定都默认为1；
+（2）所有与颜色相关的设定的默认值都为黑色（0,0,0)；背景为白色；
+（3）画曲线时，默认离散点的数量为500；
+（4）画刻度时，默认间隔数量<amount>为10.
+
+【5】以下为各种设置示例：
+-->
+
+<bg>
+<col> 255,255,255 </col>
+<xRange> -0.1, 1.1 </xRange>
+<yRange> -0.1, 1.1 </yRange>
+</bg>
+
+<points>
+<pad> true </pad>
+<col> red </col>
+<wid> 2 </wid>
+<radius> 6 </radius>
+<list>
+0.2, 0.2
+0.2, 0.5
+0.2, 0.8
+0.5, 0.8
+0.8, 0.8
+0.8, 0.5
+0.8, 0.2
+0.5, 0.2
+</list>
+</points>
+
+<lines>
+<col> orange </col>
+<wid> 3 </wid>
+<list>
+0.2, 0.2
+0.2, 0.5
+0.2, 0.8
+0.5, 0.8
+0.8, 0.8
+0.8, 0.5
+0.8, 0.2
+0.5, 0.2
+0.5, 0.5
+</list>
+</lines>
+
+<line>
+<col>  </col>
+<wid> 1 </wid>
+<point> 0.3, 0.3 </point>
+<slope> inf </slope>
+</line>
+
+<curve>
+<col> 0,0,255 </col>
+<wid> 3 </wid>
+<range> 0, 1 </range>
+<amount> 500 </amount>
+<function> Math.pow(x,2)-0.05 </function>
+</curve>
+
+<shape>
+<col> 180,180,180 </col>
+<wid> 1 </wid>
+<type> oval </type>
+<!-- type includes oval & rect -->
+<pad> true </pad>
+<center> 0.6, 0.8 </center>
+<width> 0.3 </width>
+<height> 0.2 </height>
+</shape>
+
+<shape>
+<col> 180,180,180 </col>
+<wid> 5 </wid>
+<type> rect </type>
+<!-- type includes oval & rect -->
+<pad> false </pad>
+<center> 0.3, 0.4 </center>
+<width> 0.3 </width>
+<height> 0.2 </height>
+</shape>
+
+<scale>
+<col> black </col>
+<wid> 1 </wid>
+<direction> x </direction>
+<pos> 0.0 </pos>
+<from> 0 </from>
+<step> 0.1 </step>
+<amount> 10 </amount>
+<precision> 1 </precision>
+</scale>
+
+<scale>
+<col> black </col>
+<wid> 1 </wid>
+<direction> y </direction>
+<pos> 0 </pos>
+<from> 0 </from>
+<step> 0.1 </step>
+<amount> 10 </amount>
+<precision> 1 </precision>
+</scale>
+</Component>
